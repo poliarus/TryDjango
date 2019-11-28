@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Detail{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>{{ object.title }}</h1>
+        {% if object.description != None and object.description != '' %}
+            <span>{{ object.description }}</span>
+        {% else %}
+            <span>Description coming soon</span>
+        {% endif %}
+        <p>$ <b>{{ object.price }}</b></p>
+        {% if object.summery != None and object.summery != '' %}
+            <span>{{ object.summery }}</span>
+        {% endif %}
+        {% if object.active == True %}
+            <span><b>Goods in stock</b></span>
+        {% else %}
+            <span>Soon will be in stock</span>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block content_2 %}{% endblock %}

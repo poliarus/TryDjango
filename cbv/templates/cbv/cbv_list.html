@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Class based view - list{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>This is Class Based View</h1>
+        <p>List of items</p>
+        <span>--------------------</span>
+        {% for item in cbv_item_list %}
+            <span><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></span>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Class based view - detail{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>{{ object.title }}</h1>
+        <p>{{ object.content }}</p>
+    </div>
+{% endblock %}

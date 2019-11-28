@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+    <div>content from <b>about</b> page</div>
+{% endblock %}
+
+{% block content_2 %}
+    {% include 'insert.html' %}
+{% endblock %}
+
+{% block content_3 %}
+    <div>
+        <h1>{{ my_text }}</h1>
+    </div>
+    <span>------------------------------------------</span>
+    <span>
+        <ul style="list-style: none;">
+            {% for item in my_list %}
+                {% if item != "abc" and item|length < 4 %}
+                    <li>{{ forloop.counter }} - {{ item }}</li>
+                {% elif item == "abc" %}
+                    <p>This is not the network</p>
+                {% else %}
+                    <p>Try again :)</p>
+                {% endif %}
+            {% endfor %}
+            <span>----------------------------------</span>
+            {% for elem in my_list %}
+                {% if elem|length > 4 %}
+                    {% for e in elem %}
+                        <li><i>{{ e|add:1000 }}</i></li>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            <span>-----------------------------------</span>
+            {% block full_list %}
+                {{ my_list|unordered_list }}
+            {% endblock %}
+
+            {% block tagoff %}
+                {{ my_html }}
+                {{ my_html|safe }}
+            {% endblock %}
+        </ul>
+    </span>
+{% endblock %}
